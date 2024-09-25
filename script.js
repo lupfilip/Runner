@@ -123,7 +123,7 @@ function placeOther(board) {
                 board[rand] = 3;
             }
             else if(i > 2) {
-                board[rand] = 4
+                //board[rand] = 4
             }
             else {
                 board[rand] = 2;
