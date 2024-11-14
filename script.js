@@ -2,12 +2,12 @@ function moveAction(event) {
     if(event.target.style.backgroundImage == 'url("image/runner.png")' && onTurn == 0 && selected < 0) {
         selected = parseInt(event.target.id.substr(1));
         event.target.style.backgroundColor = "rgb(255, 255, 32)";
-        move = movement(logicBoard, selected, 7, [4]);
+        move = movement(logicBoard, selected, 1, [4]);
     }
     else if(event.target.style.backgroundImage == 'url("image/chaser.png")' && onTurn == 1 && selected < 0) {
         selected = parseInt(event.target.id.substr(1));
         event.target.style.backgroundColor = "rgb(255, 255, 32)";
-        move = movement(logicBoard, selected, 3, [2, 4]);
+        move = movement(logicBoard, selected, 1, [2, 4]);
     }
     else if(move.findIndex(value => value[1] == parseInt(event.target.id.substr(1))) >= 0 && selected >= 0) {
         if(event.target.style.backgroundImage == 'url("image/portal.png")') {
@@ -115,7 +115,7 @@ function placeWalls(board, count) {
 }
 
 function placeOther(board) {
-    for(let i = 0; i < 5; i++) {
+    for(let i = 0; i < 7; i++) {
         let rand = Math.floor(Math.random() * board.length);
         if(board[rand] != 0) i--;
         else {
@@ -123,7 +123,7 @@ function placeOther(board) {
                 board[rand] = 3;
             }
             else if(i > 2) {
-                //board[rand] = 4
+                board[rand] = 4
             }
             else {
                 board[rand] = 2;
